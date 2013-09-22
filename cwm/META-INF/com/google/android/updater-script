@@ -23,6 +23,7 @@ ui_print("");
 ui_print(" > Installing system");
 run_program("/tmp/busybox", "mount", "/system");
 delete_recursive("/system/lib/modules");
+delete_recursive("/system/lib/hw/power.msm8960.so");
 package_extract_dir("system", "/system");
 set_perm_recursive(0, 0, 0755, 0755, "/system/etc/init.d");
 set_perm_recursive(0, 0, 0755, 0644, "/system/lib/hw");
