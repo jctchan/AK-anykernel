@@ -27,9 +27,8 @@ if [ "$found" != 'run-parts /system/etc/init.d' ]; then
         echo "    group root" >> init.rc
 fi
 
-# make kernel open and optimize fstab
+# make kernel open
 cp -vr ../extras/default.prop .
-cp -vr ../extras/fstab.mako .
 
 # remove governor overrides, use kernel default
 sed -i '/\/sys\/devices\/system\/cpu\/cpu0\/cpufreq\/scaling_governor/d' init.mako.rc
