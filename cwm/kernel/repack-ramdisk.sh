@@ -37,10 +37,10 @@ cp -vr ../extras/default.prop .
 #sed -i '/\/sys\/devices\/system\/cpu\/cpu3\/cpufreq\/scaling_governor/d' init.mako.rc
 
 # remove mpdecision and thermald
-#sed -i '/mpdecision/{n; /class main$/d}' init.mako.rc
-#sed -i '/thermald/{n; /class main$/d}' init.mako.rc
-#sed -i '/mpdecision/d' init.mako.rc
-#sed -i '/thermald/d' init.mako.rc
+sed -i '/mpdecision/{n; /class main$/d}' init.mako.rc
+sed -i '/thermald/{n; /class main$/d}' init.mako.rc
+sed -i '/mpdecision/d' init.mako.rc
+sed -i '/thermald/d' init.mako.rc
 
 find . | cpio -o -H newc | gzip > ../newramdisk.cpio.gz
 cd /
