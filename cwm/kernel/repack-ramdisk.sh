@@ -42,5 +42,9 @@ sed -i '/thermald/{n; /class main$/d}' init.mako.rc
 sed -i '/mpdecision/d' init.mako.rc
 sed -i '/thermald/d' init.mako.rc
 
+# remove auditd
+sed -i '/auditd/{n; /class main$/d}' init.rc
+sed -i '/auditd/d' init.rc
+
 find . | cpio -o -H newc | gzip > ../newramdisk.cpio.gz
 cd /
