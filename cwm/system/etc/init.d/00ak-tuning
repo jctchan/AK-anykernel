@@ -2,13 +2,6 @@
 # Thanks to:
 # hellsgod, malaroth, osm0sis, joaquinf, The Gingerbread Man, pkgnex, Khrushy, shreddintyres
 
-# disable sysctl.conf to prevent ROM interference
-if [ -e /system/etc/sysctl.conf ]; then
-  mount -o remount,rw /system;
-  mv /system/etc/sysctl.conf /system/etc/sysctl.conf.fkbak;
-  mount -o remount,ro /system;
-fi;
-
 # wait for systemui, increase its priority and make it unkillable
 while sleep 1; do
   if [ `pidof com.android.systemui` ]; then
@@ -38,5 +31,5 @@ done&
 echo "conservative" > /sys/devices/platform/kgsl-3d0.0/kgsl/kgsl-3d0/pwrscale/policy
 
 # enable wheatley io_is_busy
-echo "1" > /sys/devices/system/cpu/cpufreq/wheatley/io_is_busy
+#echo "1" > /sys/devices/system/cpu/cpufreq/wheatley/io_is_busy
 
