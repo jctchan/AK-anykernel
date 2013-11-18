@@ -14,11 +14,15 @@ rm -f $INITD_DIR/89airtweaks
 rm -f $INITD_DIR/98airtweak
 rm -f $INITD_DIR/98airtweaks
 rm -f $INITD_DIR/99airtweaks
-# franco
+# Franco
 rm -f $INITD_DIR/13overclock
 rm -f $INITD_DIR/00turtle
-# hellsgod
+# Hellsgod
 rm -f $INITD_DIR/00confg
+# neo
+rm -rf $INITD_DIR/*Neo*
+rm -f /system/bin/*Neo*
+rm -rf /sdcard/neo
 
 # clean kernel setting app shared_prefs
 rm -rf /data/data/mobi.cyann.nstools/shared_prefs
