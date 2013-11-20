@@ -43,10 +43,10 @@ sed -i '/\/sys\/devices\/system\/cpu\/cpu2\/cpufreq\/scaling_min_freq/d' init.ma
 sed -i '/\/sys\/devices\/system\/cpu\/cpu3\/cpufreq\/scaling_min_freq/d' init.mako.rc
 
 # remove mpdecision and thermald
-sed -i '/mpdecision/{n; /class main$/d}' init.mako.rc
-sed -i '/thermald/{n; /class main$/d}' init.mako.rc
-sed -i '/mpdecision/d' init.mako.rc
-sed -i '/thermald/d' init.mako.rc
+#sed -i '/mpdecision/{n; /class main$/d}' init.mako.rc
+#sed -i '/thermald/{n; /class main$/d}' init.mako.rc
+#sed -i '/mpdecision/d' init.mako.rc
+#sed -i '/thermald/d' init.mako.rc
 
 # remove auditd
 sed -i '/auditd/{n; /class main$/d}' init.rc
