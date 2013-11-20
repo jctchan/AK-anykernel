@@ -28,7 +28,7 @@ while sleep 60; do
 done&
 
 # enable gpu conservative governor
-echo "conservative" > /sys/devices/platform/kgsl-3d0.0/kgsl/kgsl-3d0/pwrscale/policy
+#echo "conservative" > /sys/devices/platform/kgsl-3d0.0/kgsl/kgsl-3d0/pwrscale/policy
 
 # enable wheatley io_is_busy
 #echo "1" > /sys/devices/system/cpu/cpufreq/wheatley/io_is_busy
