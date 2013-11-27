@@ -27,6 +27,29 @@ while sleep 60; do
   exit;
 done&
 
+# remount ext4 with some optimizations
+found=$(cat /proc/version | grep AK);
+if [ "$found" != "" ]; then
+  #########################
+  # Tweak mount partition
+  #########################
+  found=$(mount | grep ext4 | grep by-name/system);
+  if [ "$found" != "" ]; then
+	mount -o remount,ro,noatime,noauto_da_alloc,barrier=0 /system
+  fi
+
+  found=$(mount | grep ext4 | grep by-name/userdata);
+  if [ "$found" != "" ]; then
+	mount -o remount,noatime,nosuid,nodev,nomblk_io_submit,errors=panic,noauto_da_alloc,barrier=0,commit=120,data=writeback,nobh /data
+  fi
+
+  found=$(mount | grep ext4 | grep by-name/cache);
+  if [ "$found" != "" ]; then
+	mount -o remount,noatime,nosuid,nodev,nomblk_io_submit,errors=panic,noauto_da_alloc,barrier=0,commit=300,data=writeback,nobh /cache
+  fi
+
+fi
+
 # enable gpu conservative governor
 #echo "conservative" > /sys/devices/platform/kgsl-3d0.0/kgsl/kgsl-3d0/pwrscale/policy
 
