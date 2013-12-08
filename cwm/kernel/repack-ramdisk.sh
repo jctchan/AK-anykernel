@@ -1,4 +1,11 @@
 #!/sbin/sh
+
+# copy old kernel to sdcard
+if [ ! -e /sdcard/pre_ak_zImage ]; then
+	cp /tmp/boot.img-zImage /sdcard/pre_ak_zImage
+fi
+
+# decompress ramdisk
 mkdir /tmp/ramdisk
 cd /tmp/ramdisk
 gunzip -c ../boot.img-ramdisk.gz | cpio -i
