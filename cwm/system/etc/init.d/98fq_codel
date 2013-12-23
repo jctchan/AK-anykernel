@@ -21,3 +21,14 @@ echo 1 > /proc/sys/net/ipv4/tcp_sack
 echo 1 > /proc/sys/net/ipv4/tcp_dsack
 echo 1 > /proc/sys/net/ipv4/tcp_low_latency
 echo 1 > /proc/sys/net/ipv4/tcp_timestamps
+
+echo 1 > /proc/sys/net/ipv4/route/flush
+echo 1 > /proc/sys/net/ipv4/tcp_rfc1337
+echo 0 > /proc/sys/net/ipv4/ip_no_pmtu_disc
+echo 1 > /proc/sys/net/ipv4/tcp_fack
+echo 1 > /proc/sys/net/ipv4/tcp_window_scaling
+echo "4096 39000 187000" > /proc/sys/net/ipv4/tcp_rmem
+echo "4096 39000 187000" > /proc/sys/net/ipv4/tcp_wmem
+echo "187000 187000 187000" > /proc/sys/net/ipv4/tcp_mem
+echo 1 > /proc/sys/net/ipv4/tcp_no_metrics_save
+echo 1 > /proc/sys/net/ipv4/tcp_moderate_rcvbuf
