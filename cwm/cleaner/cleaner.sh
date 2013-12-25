@@ -23,6 +23,8 @@ rm -f $INITD_DIR/00confg
 rm -rf $INITD_DIR/*Neo*
 rm -f /system/bin/*Neo*
 rm -rf /sdcard/neo
+# slim
+rm -rf $INITD_DIR/01mpdecision
 
 # clean kernel setting app shared_prefs
 rm -rf /data/data/mobi.cyann.nstools/shared_prefs
