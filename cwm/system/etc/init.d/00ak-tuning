@@ -50,6 +50,18 @@ if [ "$found" != "" ]; then
 
 fi
 
+# set min/max freqs at boot
+fmin=384000
+fmax=1512000
+echo "$fmin" > /sys/devices/system/cpu/cpu0/cpufreq/scaling_min_freq
+echo "$fmin" > /sys/devices/system/cpu/cpu1/cpufreq/scaling_min_freq
+echo "$fmin" > /sys/devices/system/cpu/cpu2/cpufreq/scaling_min_freq
+echo "$fmin" > /sys/devices/system/cpu/cpu3/cpufreq/scaling_min_freq
+echo "$fmax" > /sys/devices/system/cpu/cpu0/cpufreq/scaling_max_freq
+echo "$fmax" > /sys/devices/system/cpu/cpu1/cpufreq/scaling_max_freq
+echo "$fmax" > /sys/devices/system/cpu/cpu2/cpufreq/scaling_max_freq
+echo "$fmax" > /sys/devices/system/cpu/cpu3/cpufreq/scaling_max_freq
+
 # enable gpu conservative governor
 #echo "conservative" > /sys/devices/platform/kgsl-3d0.0/kgsl/kgsl-3d0/pwrscale/policy
 
