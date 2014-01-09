@@ -74,21 +74,21 @@ if grep -q retention init.mako.rc; then
         # add ondemand tuneables
         sed 's/scaling_governor.*/scaling_governor \"ondemand\"/' -i init.mako.rc
         sed 's/up_threshold.*/up_threshold 90/' -i init.mako.rc
-        sed 's/sampling_rate.*/sampling_rate 50000/' -i init.mako.rc
+        sed 's/sampling_rate.*/sampling_rate 30000/' -i init.mako.rc
         sed 's/io_is_busy.*/io_is_busy 1/' -i init.mako.rc
         sed 's/sampling_down_factor.*/sampling_down_factor 4/' -i init.mako.rc
-	sed 's/optimal_freq.*/optimal_freq 702000/' -i init.mako.rc
-	sed 's/sync_freq.*/sync_freq 918000/' -i init.mako.rc
+	sed 's/optimal_freq.*/optimal_freq 918000/' -i init.mako.rc
+	sed 's/sync_freq.*/sync_freq 1026000/' -i init.mako.rc
 else
 	# add retention parameters
 	sed -e 's/vdd_mem.*/&\n    write \/sys\/module\/pm_8x60\/modes\/cpu0\/retention\/idle_enabled 0\n    write \/sys\/module\/pm_8x60\/modes\/cpu1\/retention\/idle_enabled 1\n    write \/sys\/module\/pm_8x60\/modes\/cpu2\/retention\/idle_enabled 1\n    write \/sys\/module\/pm_8x60\/modes\/cpu3\/retention\/idle_enabled 1\n    write \/sys\/module\/pm_8x60\/modes\/cpu0\/standalone_power_collapse\/suspend_enabled 1\n    write \/sys\/module\/pm_8x60\/modes\/cpu1\/standalone_power_collapse\/suspend_enabled 1\n    write \/sys\/module\/pm_8x60\/modes\/cpu2\/standalone_power_collapse\/suspend_enabled 1\n    write \/sys\/module\/pm_8x60\/modes\/cpu3\/standalone_power_collapse\/suspend_enabled 1\n    write \/sys\/module\/pm_8x60\/modes\/cpu0\/standalone_power_collapse\/idle_enabled 1\n    write \/sys\/module\/pm_8x60\/modes\/cpu1\/standalone_power_collapse\/idle_enabled 1\n    write \/sys\/module\/pm_8x60\/modes\/cpu2\/standalone_power_collapse\/idle_enabled 1\n    write \/sys\/module\/pm_8x60\/modes\/cpu3\/standalone_power_collapse\/idle_enabled 1/' -i init.mako.rc
 	# add ondemand tuneables
 	sed 's/scaling_governor.*/scaling_governor \"ondemand\"/' -i init.mako.rc
 	sed 's/up_threshold.*/up_threshold 90/' -i init.mako.rc
-	sed 's/sampling_rate.*/sampling_rate 50000/' -i init.mako.rc
+	sed 's/sampling_rate.*/sampling_rate 30000/' -i init.mako.rc
 	sed 's/io_is_busy.*/io_is_busy 1/' -i init.mako.rc
 	sed 's/sampling_down_factor.*/sampling_down_factor 4/' -i init.mako.rc
-	sed -e 's/sampling_down_factor.*/&\n    write \/sys\/devices\/system\/cpu\/cpufreq\/ondemand\/down_differential 10\n    write \/sys\/devices\/system\/cpu\/cpufreq\/ondemand\/up_threshold_multi_core 60\n    write \/sys\/devices\/system\/cpu\/cpufreq\/ondemand\/down_differential_multi_core 3\n    write \/sys\/devices\/system\/cpu\/cpufreq\/ondemand\/optimal_freq 702000\n    write \/sys\/devices\/system\/cpu\/cpufreq\/ondemand\/sync_freq 918000/' -i init.mako.rc
+	sed -e 's/sampling_down_factor.*/&\n    write \/sys\/devices\/system\/cpu\/cpufreq\/ondemand\/down_differential 10\n    write \/sys\/devices\/system\/cpu\/cpufreq\/ondemand\/up_threshold_multi_core 60\n    write \/sys\/devices\/system\/cpu\/cpufreq\/ondemand\/down_differential_multi_core 3\n    write \/sys\/devices\/system\/cpu\/cpufreq\/ondemand\/optimal_freq 918000\n    write \/sys\/devices\/system\/cpu\/cpufreq\/ondemand\/sync_freq 1026000/' -i init.mako.rc
 fi
 
 find . | cpio -o -H newc | gzip > ../newramdisk.cpio.gz
