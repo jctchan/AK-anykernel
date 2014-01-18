@@ -21,4 +21,7 @@ fi
 if [ ! -e /system/etc/wifi/WCNSS_qcom_cfg.ini_bck ] ; then
         busybox mv /system/etc/wifi/WCNSS_qcom_cfg.ini /system/etc/wifi/WCNSS_qcom_cfg.ini_bck
 fi
+if [ ! -e /system/etc/wifi/WCNSS_qcom_wlan_nv.bin_bck ] ; then
+        busybox mv /system/etc/wifi/WCNSS_qcom_wlan_nv.bin /system/etc/wifi/WCNSS_qcom_wlan_nv.bin_bck
+fi
 return $?
