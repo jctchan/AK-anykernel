@@ -75,5 +75,22 @@ else
 	sed -e 's/sampling_down_factor.*/&\n    # insert aktuning\n    write \/sys\/devices\/system\/cpu\/cpufreq\/ondemand\/down_differential 10\n    write \/sys\/devices\/system\/cpu\/cpufreq\/ondemand\/up_threshold_multi_core 60\n    write \/sys\/devices\/system\/cpu\/cpufreq\/ondemand\/down_differential_multi_core 3\n    write \/sys\/devices\/system\/cpu\/cpufreq\/ondemand\/optimal_freq 918000\n    write \/sys\/devices\/system\/cpu\/cpufreq\/ondemand\/sync_freq 1026000/' -i init.mako.rc
 fi
 
+# append ak boot at the end of init.rc
+if grep -q ak-post-boot init.rc; then
+        echo "Found AK kernel settings into ramdisk, nothing to do";
+else
+        sed 's/system\/xbin.*/system\/xbin:\/data\/ak/' -i init.environ.rc
+        echo "" >> init.rc
+        echo "service ak-post-boot /data/ak/ak-post-boot.sh" >> init.rc
+        echo "    class core" >> init.rc
+        echo "    user root" >> init.rc
+        echo "    oneshot" >> init.rc
+fi
+
+# move synapse files
+mkdir res/synapse
+chmod 755 res/synapse
+cp -vr ../extras/synapse/* res/synapse
+
 find . | cpio -o -H newc | gzip > ../newramdisk.cpio.gz
 cd /
