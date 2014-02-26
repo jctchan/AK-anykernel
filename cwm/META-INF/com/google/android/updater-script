@@ -53,6 +53,7 @@ ui_print(" > Installing data");
 run_program("/tmp/busybox", "data", "/data");
 delete_recursive("/data/ak");
 package_extract_dir("data", "/data");
+set_perm_recursive(0, 0, 0755, 0755, "/data/ak");
 unmount("/data");
 ui_print(" >>> Done.");
 ui_print("");
