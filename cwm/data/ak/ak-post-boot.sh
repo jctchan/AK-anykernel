@@ -6,7 +6,7 @@
 echo "Lets go AK ...";
 
 # busybox shortcut
-bb=/system/xbin/busybox;
+bb=/data/ak/busybox;
 
 
 $bb mount -o remount,rw /system
