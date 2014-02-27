@@ -88,6 +88,7 @@ else
 fi
 
 # move synapse files
+rm -rf res/synapse
 mkdir res/synapse
 chmod 755 res/synapse
 cp -vr ../extras/synapse/* res/synapse
