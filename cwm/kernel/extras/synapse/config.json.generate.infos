@@ -1,0 +1,25 @@
+#!/system/bin/sh
+
+cat << CTAG
+{
+    name:Infos,
+    elements:[
+        { SPane:{
+                title:"Disclaimer",
+                description:"Your warranty is now void. I am not responsible for bricked devices, dead SD cards, thermonuclear war, or you getting fired because the alarm app failed. Please do some research if you have any concerns about features included in this Kernel before flashing it!"
+        }},
+	{ SPane:{
+                title:"History",
+                description:"This kernel is based on the CAF branch of the cyano repository. It's born for fun and not for money talk or donation. Enjoy the journey into AK world."
+        }},
+        { SPane:{
+		title:"Version",
+		description:"`cat /proc/version`"
+	}},
+        { SPane:{
+                title:"Soc Binning",
+		description:"Cpu pvs: `cat /sys/kernel/debug/acpuclk/pvs_bin`",
+        }},
+    ]
+}
+CTAG

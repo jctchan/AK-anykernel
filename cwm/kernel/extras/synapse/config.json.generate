@@ -4,7 +4,7 @@ cat << CTAG
 
 {
     sections: [
-		`. /res/synapse/config.json.generate.ak`
+		`. /res/synapse/config.json.generate.infos`
     ]
 }
 CTAG
