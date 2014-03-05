@@ -1,0 +1,51 @@
+#!/sbin/busybox sh
+
+cat << CTAG
+{
+    name:Misc,
+    elements:[
+	{ STitleBar:{
+		title:"Krait C-States Settings"
+	}},
+	{ SCheckBox:{
+                description:"Shallowest Sleep with instant wake up.",
+                label:"Enable C0 (WFI)",
+                default:`cat /sys/module/pm_8x60/modes/cpu0/wfi/idle_enabled`,
+                action:"generic /sys/module/pm_8x60/modes/cpu0/wfi/idle_enabled"
+        }},
+	{ SCheckBox:{
+                description:"Slightly deeper sleep with slight latency when waking up.",
+                label:"Enable C1 (Retention)",
+                default:`cat /sys/module/pm_8x60/modes/cpu0/retention/idle_enabled`,
+                action:"generic /sys/module/pm_8x60/modes/cpu0/retention/idle_enabled"
+        }},
+	{ SCheckBox:{
+                description:"Deeper sleep with longer latency when waking up.",
+                label:"Enable C2 (Stand Alone Power Collapse)",
+                default:`cat /sys/module/pm_8x60/modes/cpu0/standalone_power_collapse/idle_enabled`,
+                action:"generic /sys/module/pm_8x60/modes/cpu0/standalone_power_collapse/idle_enabled"
+        }},
+	{ SCheckBox:{
+                description:"Really deep sleep with longest latency when waking up.",
+                label:"Enable C3 (Power Collapse)",
+                default:`cat /sys/module/pm_8x60/modes/cpu0/power_collapse/idle_enabled`,
+                action:"generic /sys/module/pm_8x60/modes/cpu0/power_collapse/idle_enabled"
+        }},
+	{ STitleBar:{
+		title:"Other Settings"
+	}},
+	{ SCheckBox:{
+                description:"Kernel SamePage Merging lets the hypervisor system share identical memory pages amongst different processes or virtualized guests. This is done by scanning through the memory finding duplicate pages. The duplicate pair is then merged into a single page, and mapped into both original locations.",
+                label:"Enable KSM",
+                default:`cat /sys/kernel/mm/ksm/run`,
+                action:"generic /sys/kernel/mm/ksm/run"
+        }},
+	{ SCheckBox:{
+                description:"Sleeper Fairness is a concept used by CFS which treat sleeping/waiting tasks as if they were in a run queue. This implies tasks which spend most of the time waiting for an user input and such will get a fair share of CPU when they need it. Disabling Gentle Fair Sleepers could improve UI responsiveness.",
+                label:"Enable GENTLE FAIR SLEEPERS",
+                default:`cat /sys/kernel/sched/gentle_fair_sleepers`,
+                action:"generic /sys/kernel/sched/gentle_fair_sleepers"
+        }},
+    ]
+}
+CTAG

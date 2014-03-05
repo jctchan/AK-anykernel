@@ -1,5 +1,3 @@
-#!/system/bin/sh
-
 cat << CTAG
 {
     name:Infos,
@@ -23,13 +21,13 @@ cat << CTAG
 					description:"Cpu pvs: `cat /sys/kernel/debug/acpuclk/pvs_bin`"
 				}},
 				{ SDescription:{
-					description:"(Test 1)"
+					description:"Values: 1 (Slow), 2 (Nominal), 3 (Fast), 4 (Faster). Process Voltage Scaling binning indicates a chip's quality, higher binning it is, the lower voltage is supplied at the same frequency."
 				}},
 				{ SDescription:{
 					description:"Cpu speed: `cat /sys/kernel/debug/acpuclk/speed_bin`"
 				}},
 				{ SDescription:{
-					description:"(Test 2)"
+					description:"Values: from 0 (Lowest) to 14 (Higher). Once the chips have been packaged they go through a class testing or binning process whereby their thermal and frequency characteristics will be analysed. Think of it as an audition process, with each chip hoping to be capable of getting a role at the top end of the range, running at the highest frequencies. Unfortunately, due to tiny variances in the production process, some chips may not run as well and will have to be content with being binned as lower range chips."
 				}},
     ]
 }

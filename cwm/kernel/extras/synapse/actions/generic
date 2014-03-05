@@ -1,0 +1,23 @@
+if [ -f $1 ];then
+
+  if [ "$1" == "/sys/module/input_core/parameters/pwrkey_suspend" ]; then
+    
+	if [[ ! -z $2 ]]; then
+      [ "$2" == "1" ] && echo "Y" > $1
+      [ "$2" == "0" ] && echo "N" > $1
+    fi
+
+    [ `cat $1` == "Y" ] && echo "1"
+    [ `cat $1` == "N" ] && echo "0"
+	
+  else
+	
+	if [[ ! -z $2 ]]; then
+		echo $2 > $1
+	fi
+
+	echo `cat $1`
+	  
+  fi
+  
+fi
