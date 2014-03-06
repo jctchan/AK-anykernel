@@ -14,7 +14,6 @@ $bb mount -t rootfs -o remount,rw rootfs
 
 # add synapse support
 chmod 755 /res/synapse/uci
-chmod 755 /res/synapse/actions/*
 ln -s /res/synapse/uci /sbin/uci
 /sbin/uci
 
