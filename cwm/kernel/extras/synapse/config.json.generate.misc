@@ -1,5 +1,3 @@
-#!/sbin/busybox sh
-
 cat << CTAG
 {
     name:Misc,
