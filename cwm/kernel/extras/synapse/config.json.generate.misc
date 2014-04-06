@@ -30,7 +30,7 @@ cat << CTAG
                 action:"generic /sys/module/pm_8x60/modes/cpu0/power_collapse/idle_enabled"
         }},
 	{ STitleBar:{
-		title:"Other Settings"
+		title:"Kernel Samepage Merging"
 	}},
 	{ SCheckBox:{
                 description:"Kernel SamePage Merging lets the hypervisor system share identical memory pages amongst different processes or virtualized guests. This is done by scanning through the memory finding duplicate pages. The duplicate pair is then merged into a single page, and mapped into both original locations.",
@@ -38,6 +38,21 @@ cat << CTAG
                 default:`cat /sys/kernel/mm/ksm/run`,
                 action:"generic /sys/kernel/mm/ksm/run"
         }},
+	{ SSeekBar:{
+		title:"Pages To Scan",
+		max:500, min:10, step:10,
+		default:`cat /sys/kernel/mm/ksm/pages_to_scan`,
+				action:"generic /sys/kernel/mm/ksm/pages_to_scan"
+	}},
+	{ SSeekBar:{
+		title:"Sleep",
+		max:2000, min:50, step:50, unit:" ms",
+		default:`cat /sys/kernel/mm/ksm/sleep_millisecs`,
+				action:"generic /sys/kernel/mm/ksm/sleep_millisecs"
+	}},
+	{ STitleBar:{
+		title:"Other Settings"
+	}},
 	{ SCheckBox:{
                 description:"Sleeper Fairness is a concept used by CFS which treat sleeping/waiting tasks as if they were in a run queue. This implies tasks which spend most of the time waiting for an user input and such will get a fair share of CPU when they need it. Disabling Gentle Fair Sleepers could improve UI responsiveness.",
                 label:"Enable GENTLE FAIR SLEEPERS",

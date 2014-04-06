@@ -75,7 +75,7 @@ cat << CTAG
 	}},
 	{ SButton:{
 		label:"Reboot Device",
-r		action:"restorebackup reboot"
+		action:"restorebackup reboot"
 	}},
 
     ]

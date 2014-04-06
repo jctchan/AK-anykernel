@@ -1,0 +1,19 @@
+cat << CTAG
+{
+    name:Gpu,
+    elements:[
+	{ SPane:{
+		title:"GPU Policy",
+		description:"The GPU Policy ........"
+	}},
+	{ SOptionList:{
+                default:`cat /sys/devices/platform/kgsl-3d0.0/kgsl/kgsl-3d0/pwrscale/policy`,
+                action:"gpupolicy /sys/devices/platform/kgsl-3d0.0/kgsl/kgsl-3d0/pwrscale/policy",
+                values:[
+						trustzone,
+						conservative
+				]
+	}},
+    ]
+}
+CTAG

@@ -1,0 +1,10 @@
+if [[ ! -z $2 ]]; then
+	case $2 in
+	trustzone)
+		echo "trustzone" > $1 ;;
+	conservative)
+		echo "conservative" > $1 ;;
+	esac
+fi
+
+echo `cat $1`

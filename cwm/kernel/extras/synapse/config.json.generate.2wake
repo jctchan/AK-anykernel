@@ -24,7 +24,7 @@ cat << CTAG
     }},
 	{ SCheckBox:{
                 description:"Allows you to off the screen via swipe from right to left with one finger on the navigation bar (this enable automatically also the s2w checkbox).",
-                label:"Enable S2S (Sleep to Sleep)",
+                label:"Enable S2S (Sweep to Sleep)",
                 default:`cat /sys/android_touch/s2w_s2sonly`,
 				action:"2wake /sys/android_touch/s2w_s2sonly"
     }},
