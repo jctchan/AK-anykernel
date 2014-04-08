@@ -18,7 +18,7 @@ rm -f $INITD_DIR/99airtweaks
 rm -f $INITD_DIR/13overclock
 rm -f $INITD_DIR/00turtle
 # Hellsgod
-rm -f $INITD_DIR/00confg
+rm -f $INITD_DIR/*00*
 # neo
 rm -rf $INITD_DIR/*Neo*
 rm -f /system/bin/*Neo*
