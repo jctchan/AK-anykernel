@@ -16,4 +16,4 @@ echo "$max" > /sys/devices/system/cpu/cpu2/cpufreq/scaling_max_freq
 echo "$max" > /sys/devices/system/cpu/cpu3/cpufreq/scaling_max_freq
 
 # set conservative gpu policy 
-echo "conservative" > /sys/devices/platform/kgsl-3d0.0/kgsl/kgsl-3d0/pwrscale/policy
+#echo "conservative" > /sys/devices/platform/kgsl-3d0.0/kgsl/kgsl-3d0/pwrscale/policy
