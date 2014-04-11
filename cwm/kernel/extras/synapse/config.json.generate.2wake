@@ -1,38 +1,24 @@
-polar_to_bool() {
-  [ `cat $1` == "Y" ] && echo "1";
-  [ `cat $1` == "N" ] && echo "0";
-}
-
 cat << CTAG
 {
     name:2wake,
     elements:[
 	{ STitleBar:{
-				title:"Settings"
+				title:"Double Tap to Wake"
 	}},
 	{ SCheckBox:{
-                description:"Allows you to activate the phone via swipe from left to right in the middle of the screen.",
-                label:"Enable S2W (Sweep to Wake)",
-                default:`cat /sys/android_touch/sweep2wake`,
-                action:"generic /sys/android_touch/sweep2wake"
-    }},
-	{ SCheckBox:{
                 description:"Allows you to activate the phone via a double tap in the middle of the screen.",
-                label:"Enable DT2W (Double Tap to Wake)",
-                default:`cat /sys/android_touch/doubletap2wake`,
-                action:"generic /sys/android_touch/doubletap2wake"
+                label:"Double Tap to Wake (DT2W)",
+                default:`cat /sys/devices/virtual/input/lge_touch/dt_wake_enabled`,
+                action:"2wake /sys/devices/virtual/input/lge_touch/dt_wake_enabled"
     }},
+	{ STitleBar:{
+				title:"One Tap to Wake"
+	}},
 	{ SCheckBox:{
-                description:"Allows you to off the screen via swipe from right to left with one finger on the navigation bar (this enable automatically also the s2w checkbox).",
-                label:"Enable S2S (Sweep to Sleep)",
-                default:`cat /sys/android_touch/s2w_s2sonly`,
-				action:"2wake /sys/android_touch/s2w_s2sonly"
-    }},
-	{ SCheckBox:{
-                description:"When the screen goes off without touch anything (sleep timeout) 2wake remains enabled, otherwise you can disable it with pressing power button or use sweep to sleep.",
-                label:"Enable ECO MODE (S2w/S2s/Dt2w)",
-                default:`polar_to_bool /sys/module/input_core/parameters/pwrkey_suspend`,
-                action:"generic /sys/module/input_core/parameters/pwrkey_suspend"
+                description:"Allows you to activate the phone via one tap in the middle of the screen. (this enable automatically also the s2w checkbox).",
+                label:"Touch Wake (TW)",
+                default:`cat /sys/devices/virtual/misc/touchwake/enabled`,
+				action:"1wake /sys/devices/virtual/misc/touchwake/enabled"
     }},
     ]
 }

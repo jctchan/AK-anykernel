@@ -3,6 +3,7 @@ cat << CTAG
 {
     sections: [
 		`. /res/synapse/config.json.generate.infos`,
+		`. /res/synapse/config.json.generate.io`,
 		`. /res/synapse/config.json.generate.2wake`,
 		`. /res/synapse/config.json.generate.misc`,
 		`. /res/synapse/config.json.generate.gpu`,
