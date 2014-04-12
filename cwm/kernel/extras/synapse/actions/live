@@ -2,4 +2,8 @@ case $1 in
   entropy)
     echo "`cat /proc/sys/kernel/random/entropy_avail`";
   ;;
+  gpufreq)
+    GPUFREQ="$((`cat /sys/devices/platform/kgsl-3d0.0/kgsl/kgsl-3d0/gpuclk` / 1000000)) MHz";
+    echo "$GPUFREQ";
+  ;;
 esac;

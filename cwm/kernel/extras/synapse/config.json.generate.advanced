@@ -74,6 +74,7 @@ cat << CTAG
 	{ SLiveLabel:{
 		title:"Entropy Available",
 		refresh:1000,
+		style:italic,
 		action:"live entropy"
 	}},
 	{ SSeekBar:{

@@ -1,18 +1,43 @@
+GPUFREQ='128000000:"128 MHz", 200000000:"200 MHz", 320000000:"320 MHz", 487500000:"487 MHz"'
+GPUBOOST='1:"128 MHz", 2:"200 MHz", 3:"320 MHz", 4:"487 MHz"'
+
 cat << CTAG
 {
     name:Gpu,
     elements:[
-	{ SPane:{
-		title:"GPU Policy",
-		description:"The GPU Policy ........"
+	{ STitleBar:{
+		title:"GPU Frequency Scaling"
+	}},
+	{ SLiveLabel:{
+		title:"GPU Frequency",
+		refresh:500,
+		style:italic,
+		action:"live gpufreq"
+	}},
+	{ SSeekBar:{
+	title:"GPU Max Frequency",
+		description:"Set the maximum freqency the GPU scales up to.",
+		default:`cat /sys/devices/platform/kgsl-3d0.0/kgsl/kgsl-3d0/max_gpuclk`,
+		action:"generic /sys/devices/platform/kgsl-3d0.0/kgsl/kgsl-3d0/max_gpuclk",
+		values:{
+`
+			echo $GPUFREQ
+`
+		}
+	}},
+	{ STitleBar:{
+		title:"GPU Policy"
+	}},
+	{ SDescription:{
+		description:"The GPU Policy make scaling decisions based on specific algorithm for 2D/3D scenarios."
 	}},
 	{ SOptionList:{
-                default:`cat /sys/devices/platform/kgsl-3d0.0/kgsl/kgsl-3d0/pwrscale/policy`,
-                action:"gpupolicy /sys/devices/platform/kgsl-3d0.0/kgsl/kgsl-3d0/pwrscale/policy",
-                values:[
-						trustzone,
-						conservative
-				]
+		default:`cat /sys/devices/platform/kgsl-3d0.0/kgsl/kgsl-3d0/pwrscale/policy`,
+		action:"gpupolicy /sys/devices/platform/kgsl-3d0.0/kgsl/kgsl-3d0/pwrscale/policy",
+		values:[
+			trustzone,
+			conservative
+			]
 	}},
     ]
 }

@@ -29,6 +29,27 @@ cat << CTAG
 				{ SDescription:{
 					description:"Values: from 0 (Lowest) to 14 (Higher). Once the chips have been packaged they go through a class testing or binning process whereby their thermal and frequency characteristics will be analysed. Think of it as an audition process, with each chip hoping to be capable of getting a role at the top end of the range, running at the highest frequencies. Unfortunately, due to tiny variances in the production process, some chips may not run as well and will have to be content with being binned as lower range chips."
 				}},
-    ]
+        { STitleBar:{
+				title:"Links"
+				}},
+                { SDescription:{
+					description:"Xda Thread: <br><a href='http://goo.gl/GR8Vus'>> Nexus 4 </a>"
+				}},
+				{ SDescription:{
+					description:"Xda Thread: <br><a href='http://goo.gl/2agMaK'>> Nexus 7</a>"
+				}},
+				{ SDescription:{
+					description:"Github Source: <br><a href='https://github.com/anarkia1976/AK-xGenesis'>> Nexus 4</a>"
+				}},
+				{ SDescription:{
+					description:"Github Source: <br><a href='https://github.com/anarkia1976/AK-xGenesis'>> Nexus 7</a>"
+				}},
+				{ SDescription:{
+					description:"Kernels Downloads: <br><a href='http://ak.hiddenbytes.org/'>> AK Hiddenbytes</a>"
+				}},
+				{ SDescription:{
+					description:"Donate to Project: <br><a href='https://www.paypal.com/'>> Paypal</a>"
+				}},
+	]
 }
 CTAG
