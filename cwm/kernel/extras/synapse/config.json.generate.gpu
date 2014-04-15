@@ -1,5 +1,4 @@
 GPUFREQ='128000000:"128 MHz", 200000000:"200 MHz", 320000000:"320 MHz", 487500000:"487 MHz"'
-GPUBOOST='1:"128 MHz", 2:"200 MHz", 3:"320 MHz", 4:"487 MHz"'
 
 cat << CTAG
 {
@@ -10,20 +9,9 @@ cat << CTAG
 	}},
 	{ SLiveLabel:{
 		title:"GPU Frequency",
-		refresh:500,
+		refresh:1000,
 		style:italic,
 		action:"live gpufreq"
-	}},
-	{ SSeekBar:{
-	title:"GPU Max Frequency",
-		description:"Set the maximum freqency the GPU scales up to.",
-		default:`cat /sys/devices/platform/kgsl-3d0.0/kgsl/kgsl-3d0/max_gpuclk`,
-		action:"generic /sys/devices/platform/kgsl-3d0.0/kgsl/kgsl-3d0/max_gpuclk",
-		values:{
-`
-			echo $GPUFREQ
-`
-		}
 	}},
 	{ STitleBar:{
 		title:"GPU Policy"
@@ -39,6 +27,30 @@ cat << CTAG
 			conservative
 			]
 	}},
+	{ SSeekBar:{
+	title:"GPU Max Frequency",
+		description:"Set the maximum freqency the GPU scales up to.",
+		default:`cat /sys/devices/platform/kgsl-3d0.0/kgsl/kgsl-3d0/max_gpuclk`,
+		action:"generic /sys/devices/platform/kgsl-3d0.0/kgsl/kgsl-3d0/max_gpuclk",
+		values:{
+`
+			echo $GPUFREQ
+`
+		}
+	}},
+	{ SPane:{
+		title:"Gpu Voltages"
+    }},
+`
+while read UVOLT UNIT; do
+	VOLTAGE=$(($VOLTAGE+1))
+	echo '{ SSeekBar:{
+	default:'$UVOLT',
+	title:"Voltage '${VOLTAGE}'",
+	action:"voltage gpuvolt '${VOLTAGE}'",
+	unit:"' ${UNIT}'", min:900, max:1200, step:10 }},'
+done < /sys/devices/system/cpu/cpu0/cpufreq/gpu_mv_table
+`
     ]
 }
 CTAG
