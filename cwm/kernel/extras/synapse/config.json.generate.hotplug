@@ -1,0 +1,81 @@
+CPU='1:"1 Cpu", 2:"2 Cpu", 3:"3 Cpu", 4:"4 Cpu"'
+
+cat << CTAG
+{
+    name:Hotplug,
+    elements:[
+	{ STitleBar:{
+		title:"CPU Load stats"
+	}},
+	{ SLiveLabel:{
+		title:"Load stats",
+		refresh:1000,
+		style:italic,
+		action:"live cpuload"
+	}},
+	{ STitleBar:{
+				title:"MSM Hotplug Tunables"
+	}},
+	{ SCheckBox:{
+                description:"Allows you to Activate debug mask.",
+                label:"Debug",
+                default:`cat /sys/module/msm_hotplug/parameters/debug_mask`,
+                action:"generic /sys/module/msm_hotplug/parameters/debug_mask"
+    }},
+	{ SSeekBar:{
+       	title:"Min CPU Online",
+		description:"Set the min number of cpu online at the same time.",
+		default:`cat /sys/module/msm_hotplug/min_cpus_online`,
+		action:"generic /sys/module/msm_hotplug/min_cpus_online",
+		values:{
+`
+			echo $CPU
+`
+		}
+	}},
+	{ SSeekBar:{
+       	title:"Max CPU Online",
+		description:"Set the max number of cpu online at the same time.",
+		default:`cat /sys/module/msm_hotplug/max_cpus_online`,
+		action:"generic /sys/module/msm_hotplug/max_cpus_online",
+		values:{
+`
+			echo $CPU
+`
+		}
+	}},
+	{ SSeekBar:{
+       	title:"Max CPU boosted",
+		description:"Set the max number of cpu boosted at the same time.",
+		default:`cat /sys/module/msm_hotplug/cpus_boosted`,
+		action:"generic /sys/module/msm_hotplug/cpus_boosted",
+		values:{
+`
+			echo $CPU
+`
+		}
+	}},
+	{ SSeekBar:{
+		title:"Down Lock Duration",
+		description:"Set the Down lock duration for cpu.",
+		min:1, max:10000, step:1,
+		default:`cat /sys/module/msm_hotplug/down_lock_duration`,
+		action:"generic /sys/module/msm_hotplug/down_lock_duration"
+	}},
+	{ SSeekBar:{
+		title:"Update Rate",
+		description:"Set update rate.",
+		min:1, max:60, step:1,
+		default:`cat /sys/module/msm_hotplug/update_rate`,
+		action:"generic /sys/module/msm_hotplug/update_rate"
+	}},
+	{ SSeekBar:{
+		title:"History Size",
+		description:"Set history size for the load stats calculation.",
+		min:1, max:60, step:1,
+		default:`cat /sys/module/msm_hotplug/history_size`,
+		action:"generic /sys/module/msm_hotplug/history_size"
+	}},
+    ]
+}
+CTAG

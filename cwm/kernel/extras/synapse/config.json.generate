@@ -5,6 +5,7 @@ cat << CTAG
 		`. /res/synapse/config.json.generate.infos`,
 		`. /res/synapse/config.json.generate.io`,
 		`. /res/synapse/config.json.generate.2wake`,
+		`. /res/synapse/config.json.generate.hotplug`,
 		`. /res/synapse/config.json.generate.gpu`,
 		`. /res/synapse/config.json.generate.misc`,
 		`. /res/synapse/config.json.generate.advanced`,

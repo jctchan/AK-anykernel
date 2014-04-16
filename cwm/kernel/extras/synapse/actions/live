@@ -6,4 +6,7 @@ case $1 in
     GPUFREQ="$((`cat /sys/devices/platform/kgsl-3d0.0/kgsl/kgsl-3d0/gpuclk` / 1000000)) MHz";
     echo "$GPUFREQ";
   ;;
+  cpuload)
+    echo "`cat /sys/module/msm_hotplug/current_load`";
+  ;;
 esac;

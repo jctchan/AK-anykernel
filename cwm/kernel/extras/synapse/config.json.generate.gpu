@@ -9,7 +9,7 @@ cat << CTAG
 	}},
 	{ SLiveLabel:{
 		title:"GPU Frequency",
-		refresh:1000,
+		refresh:3000,
 		style:italic,
 		action:"live gpufreq"
 	}},
@@ -28,7 +28,7 @@ cat << CTAG
 			]
 	}},
 	{ SSeekBar:{
-	title:"GPU Max Frequency",
+		title:"GPU Max Frequency",
 		description:"Set the maximum freqency the GPU scales up to.",
 		default:`cat /sys/devices/platform/kgsl-3d0.0/kgsl/kgsl-3d0/max_gpuclk`,
 		action:"generic /sys/devices/platform/kgsl-3d0.0/kgsl/kgsl-3d0/max_gpuclk",
