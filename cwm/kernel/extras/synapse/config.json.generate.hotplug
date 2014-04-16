@@ -8,7 +8,7 @@ cat << CTAG
 		title:"CPU Load stats"
 	}},
 	{ SLiveLabel:{
-		title:"Current average load across all online cpus (percent).",
+		title:"Current average load across all online cpus (cumulated).",
 		refresh:1000,
 		style:italic,
 		action:"live cpuload"
