@@ -8,23 +8,23 @@ cat << CTAG
 		title:"CPU Load stats"
 	}},
 	{ SLiveLabel:{
-		title:"Load stats",
+		title:"Current average load across all online cpus (percent).",
 		refresh:1000,
 		style:italic,
 		action:"live cpuload"
 	}},
 	{ STitleBar:{
-				title:"MSM Hotplug Tunables"
+		title:"MSM Hotplug Tunables"
 	}},
 	{ SCheckBox:{
-                description:"Allows you to Activate debug mask.",
+		description:"Allows you to Activate debug mask.",
                 label:"Debug",
                 default:`cat /sys/module/msm_hotplug/parameters/debug_mask`,
-                action:"generic /sys/module/msm_hotplug/parameters/debug_mask"
+		action:"generic /sys/module/msm_hotplug/parameters/debug_mask"
     }},
 	{ SSeekBar:{
-       	title:"Min CPU Online",
-		description:"Set the min number of cpu online at the same time.",
+		title:"Min CPUs Online",
+		description:"Set the min number of cpus online at the same time.",
 		default:`cat /sys/module/msm_hotplug/min_cpus_online`,
 		action:"generic /sys/module/msm_hotplug/min_cpus_online",
 		values:{
@@ -34,8 +34,8 @@ cat << CTAG
 		}
 	}},
 	{ SSeekBar:{
-       	title:"Max CPU Online",
-		description:"Set the max number of cpu online at the same time.",
+	title:"Max CPUs Online",
+		description:"Set the max number of cpus online at the same time.",
 		default:`cat /sys/module/msm_hotplug/max_cpus_online`,
 		action:"generic /sys/module/msm_hotplug/max_cpus_online",
 		values:{
@@ -45,8 +45,8 @@ cat << CTAG
 		}
 	}},
 	{ SSeekBar:{
-       	title:"Max CPU boosted",
-		description:"Set the max number of cpu boosted at the same time.",
+	title:"Max CPUs boosted",
+		description:"Set the max number of cpus boosted at the same time.",
 		default:`cat /sys/module/msm_hotplug/cpus_boosted`,
 		action:"generic /sys/module/msm_hotplug/cpus_boosted",
 		values:{
@@ -57,21 +57,21 @@ cat << CTAG
 	}},
 	{ SSeekBar:{
 		title:"Down Lock Duration",
-		description:"Set the Down lock duration for cpu.",
+		description:"Minimum interval a cpu is kept online (milliseconds).",
 		min:1, max:10000, step:1,
 		default:`cat /sys/module/msm_hotplug/down_lock_duration`,
 		action:"generic /sys/module/msm_hotplug/down_lock_duration"
 	}},
 	{ SSeekBar:{
 		title:"Update Rate",
-		description:"Set update rate.",
+		description:"Interval between taking samples of load across cpus (milliseconds), lower means quicker/more erratic.",
 		min:1, max:60, step:1,
 		default:`cat /sys/module/msm_hotplug/update_rate`,
 		action:"generic /sys/module/msm_hotplug/update_rate"
 	}},
 	{ SSeekBar:{
 		title:"History Size",
-		description:"Set history size for the load stats calculation.",
+		description:"Number of samples taken in consideration for avarage load across cpus (see update rate), lower means quicker/more erratic.",
 		min:1, max:60, step:1,
 		default:`cat /sys/module/msm_hotplug/history_size`,
 		action:"generic /sys/module/msm_hotplug/history_size"
