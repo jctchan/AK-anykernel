@@ -20,6 +20,13 @@ cat << CTAG
                 default:`cat /sys/devices/virtual/misc/touchwake/enabled`,
 				action:"1wake /sys/devices/virtual/misc/touchwake/enabled"
     }},
+	{ SSeekBar:{
+				title:"Touch Wake Delay",
+				description:"Set a delay (until the touch controls will be disabled, after screen off) in seconds. Value of 0 means the touch controls will be kept enabled indefinitely.",
+				min:0, max:600000, step:1000, weight:0.001,
+				default:`cat /sys/devices/virtual/misc/touchwake/delay`,
+				action:"generic /sys/devices/virtual/misc/touchwake/delay"
+	}},
     ]
 }
 CTAG
