@@ -8,19 +8,19 @@ cat << CTAG
 		title:"CPU Load stats"
 	}},
 	{ SLiveLabel:{
-		title:"Current average load across all online cpus (cumulated).",
+		title:"Current average load across all online cpus (percent).",
 		refresh:1000,
 		style:italic,
 		action:"live cpuload"
 	}},
 	{ STitleBar:{
-		title:"MSM Hotplug Tunables"
+				title:"MSM Hotplug Tunables"
 	}},
 	{ SCheckBox:{
-		description:"Allows you to Activate debug mask.",
+                description:"Allows you to Activate debug mask.",
                 label:"Debug",
                 default:`cat /sys/module/msm_hotplug/parameters/debug_mask`,
-		action:"generic /sys/module/msm_hotplug/parameters/debug_mask"
+                action:"generic /sys/module/msm_hotplug/parameters/debug_mask"
     }},
 	{ SSeekBar:{
 		title:"Min CPUs Online",
@@ -34,7 +34,7 @@ cat << CTAG
 		}
 	}},
 	{ SSeekBar:{
-	title:"Max CPUs Online",
+		title:"Max CPUs Online",
 		description:"Set the max number of cpus online at the same time.",
 		default:`cat /sys/module/msm_hotplug/max_cpus_online`,
 		action:"generic /sys/module/msm_hotplug/max_cpus_online",
@@ -45,7 +45,7 @@ cat << CTAG
 		}
 	}},
 	{ SSeekBar:{
-	title:"Max CPUs boosted",
+		title:"Max CPUs boosted",
 		description:"Set the max number of cpus boosted at the same time.",
 		default:`cat /sys/module/msm_hotplug/cpus_boosted`,
 		action:"generic /sys/module/msm_hotplug/cpus_boosted",
