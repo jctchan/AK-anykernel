@@ -9,7 +9,7 @@ cat << CTAG
 	}},
 	{ SLiveLabel:{
 		title:"GPU Frequency",
-		refresh:3000,
+		refresh:1500,
 		style:italic,
 		action:"live gpufreq"
 	}},
