@@ -1,6 +1,6 @@
 cat << CTAG
 {
-    name:Infos,
+    name:INFOS,
     elements:[
         { SPane:{
                 title:"Disclaimer",

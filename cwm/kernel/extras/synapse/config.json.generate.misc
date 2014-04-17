@@ -1,6 +1,6 @@
 cat << CTAG
 {
-    name:Misc,
+    name:MISC,
     elements:[
 	{ STitleBar:{
 		title:"Krait C-States Settings"
@@ -40,14 +40,14 @@ cat << CTAG
         }},
 	{ SSeekBar:{
 		title:"Pages To Scan",
-		max:500, min:10, step:10,
-		default:`cat /sys/kernel/mm/ksm/pages_to_scan`,
+				max:500, min:10, step:10,
+				default:`cat /sys/kernel/mm/ksm/pages_to_scan`,
 				action:"generic /sys/kernel/mm/ksm/pages_to_scan"
 	}},
 	{ SSeekBar:{
 		title:"Sleep",
-		max:2000, min:50, step:50, unit:" ms",
-		default:`cat /sys/kernel/mm/ksm/sleep_millisecs`,
+				max:2000, min:50, step:50, unit:" ms",
+				default:`cat /sys/kernel/mm/ksm/sleep_millisecs`,
 				action:"generic /sys/kernel/mm/ksm/sleep_millisecs"
 	}},
 	{ STitleBar:{
@@ -58,6 +58,12 @@ cat << CTAG
                 label:"Enable GENTLE FAIR SLEEPERS",
                 default:`cat /sys/kernel/sched/gentle_fair_sleepers`,
                 action:"generic /sys/kernel/sched/gentle_fair_sleepers"
+        }},
+	{ SCheckBox:{
+                description:"This Hack is all-in-one feature to enable externally powered OTG (technically usb host mode) support, power MUST be supplied externally, as there is no way for the phone to provide it. nb: modded ramdisk is necessary for full support.",
+                label:"Enable USB OTG HACK",
+                default:`cat /sys/module/msm_otg/parameters/otg_hack_enable`,
+                action:"generic //sys/module/msm_otg/parameters/otg_hack_enable"
         }},
     ]
 }

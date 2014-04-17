@@ -1,6 +1,6 @@
 cat << CTAG
 {
-    name:2wake,
+    name:2WAKE,
     elements:[
 	{ STitleBar:{
 				title:"Double Tap to Wake"

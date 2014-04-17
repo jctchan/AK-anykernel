@@ -2,7 +2,7 @@ GPUFREQ='128000000:"128 MHz", 200000000:"200 MHz", 320000000:"320 MHz", 48750000
 
 cat << CTAG
 {
-    name:Gpu,
+    name:GPU,
     elements:[
 	{ STitleBar:{
 		title:"GPU Frequency Scaling"

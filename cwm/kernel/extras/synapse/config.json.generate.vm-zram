@@ -1,6 +1,6 @@
 cat << CTAG
 {
-    name:VM & Z-RAM,
+    name:VM&ZRAM,
     elements:[
       { SPane:{
 		title:"Virtual Memory",
@@ -45,23 +45,6 @@ cat << CTAG
 		default:`cat /proc/sys/vm/dirty_writeback_centisecs`,
 				action:"generic /proc/sys/vm/dirty_writeback_centisecs"
 	}},
-	{ SSeekBar:{
-		title:"Dirty Writeback Active Centisecs",
-		max:2500, step:50,
-		default:`cat /proc/sys/vm/dirty_writeback_active_centisecs`,
-				action:"generic /proc/sys/vm/dirty_writeback_active_centisecs"
-	}},
-	{ SSeekBar:{
-		title:"Dirty Writeback Suspend Centisecs",
-		max:2500, step:50,
-		default:`cat /proc/sys/vm/dirty_writeback_suspend_centisecs`,
-				action:"generic /proc/sys/vm/dirty_writeback_suspend_centisecs"
-	}},
-	{ SCheckBox:{
-                label:"Dynamic Dirty Writeback",
-                default:`cat /proc/sys/vm/dynamic_dirty_writeback`,
-                action:"generic /proc/sys/vm/dynamic_dirty_writeback"
-        }},
 	{ SCheckBox:{
                 label:"Highmem Is Dirtyable",
                 default:`cat /proc/sys/vm/highmem_is_dirtyable`,
@@ -130,12 +113,6 @@ cat << CTAG
 		max:1000, min:-1,
 		default:`cat /proc/sys/vm/extfrag_threshold`,
 				action:"generic /proc/sys/vm/extfrag_threshold"
-	}},
-	{ SSeekBar:{
-		title:"Low-Mem Reserve Ratio (x2 Array)",
-		max:100,
-		default:`echo $(/res/synapse/actions/generic /proc/sys/vm/lowmem_reserve_ratio)`,
-				action:"generic /proc/sys/vm/lowmem_reserve_ratio"
 	}},
 	{ SSeekBar:{
 		title:"Per-CPU Pagelist Fraction (1/x)",

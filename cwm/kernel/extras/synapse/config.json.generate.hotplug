@@ -2,7 +2,7 @@ CPU='1:"1 Cpu", 2:"2 Cpu", 3:"3 Cpu", 4:"4 Cpu"'
 
 cat << CTAG
 {
-    name:Hotplug,
+    name:HOTPLUG,
     elements:[
 	{ STitleBar:{
 		title:"CPU Load stats"
@@ -14,13 +14,13 @@ cat << CTAG
 		action:"live cpuload"
 	}},
 	{ STitleBar:{
-				title:"MSM Hotplug Tunables"
+		title:"MSM Hotplug Tunables"
 	}},
 	{ SCheckBox:{
-                description:"Allows you to Activate debug mask.",
-                label:"Debug",
-                default:`cat /sys/module/msm_hotplug/parameters/debug_mask`,
-                action:"generic /sys/module/msm_hotplug/parameters/debug_mask"
+		description:"Allows you to Activate debug mask.",
+		label:"Debug",
+		default:`cat /sys/module/msm_hotplug/parameters/debug_mask`,
+		action:"generic /sys/module/msm_hotplug/parameters/debug_mask"
     }},
 	{ SSeekBar:{
 		title:"Min CPUs Online",

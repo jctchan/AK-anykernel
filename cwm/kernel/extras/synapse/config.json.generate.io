@@ -3,7 +3,7 @@ NM='0:"0: All", 1:"1: Simple Only", 2:"2: None"'
 
 cat << CTAG
 {
-    name:I/O,
+    name:IO,
     elements:[
         { SPane:{
 		title:"I/O Scheduler",
