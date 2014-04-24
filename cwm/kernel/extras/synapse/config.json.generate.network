@@ -1,0 +1,24 @@
+TCPNUM=0
+
+cat << CTAG
+{
+    name:NETWORK,
+    elements:[
+	{ STitleBar:{
+		title:"Internet Congestion Control"
+		}},
+	{ SOptionList:{
+		title:"TCP Congestion Algorithm",
+		description:"Set the algorithm of internet congestion avoidance, to possibly improve speeds and load times.",
+                action:"tcp /proc/sys/net/ipv4/tcp_available_congestion_control",
+                values:[
+`
+      for TCP in \`cat /proc/sys/net/ipv4/tcp_available_congestion_control\` ; do
+        echo "\"$TCP\","
+      done
+`
+                ]
+        }},
+    ]
+}
+CTAG

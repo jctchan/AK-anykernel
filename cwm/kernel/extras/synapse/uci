@@ -12,13 +12,14 @@ fi;
 
 case "${1}" in
   config)
-		cat $CONFIG_JSON;;
+	cat $CONFIG_JSON ;;
   configpath)
-		echo $CONFIG_JSON;;
+	echo $CONFIG_JSON ;;
   actionpath)
-		echo $ACTION_SCRIPTS;;
+	echo $ACTION_SCRIPTS ;;
   reset)
-		mount -t rootfs -o rw,remount rootfs;
-		rm -f $CONFIG_JSON;
-		mount -t rootfs -o ro,remount rootfs;;
+	mount -t rootfs -o rw,remount rootfs;
+	rm -f $CONFIG_JSON;
+	mount -t rootfs -o ro,remount rootfs;
+ ;;
 esac;

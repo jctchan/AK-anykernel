@@ -14,14 +14,23 @@ cat << CTAG
 		action:"live cpuload"
 	}},
 	{ STitleBar:{
-		title:"MSM Hotplug Tunables"
+		title:"MSM Hotplug"
 	}},
+	{ SCheckBox:{
+		description:"Allows you to Enable/Disable hotplug drivers.",
+		label:"Enable/Disable",
+		default:`cat /sys/module/msm_hotplug/enabled`,
+		action:"generic /sys/module/msm_hotplug/enabled"
+    }},
 	{ SCheckBox:{
 		description:"Allows you to Activate debug mask.",
 		label:"Debug",
 		default:`cat /sys/module/msm_hotplug/parameters/debug_mask`,
 		action:"generic /sys/module/msm_hotplug/parameters/debug_mask"
     }},
+	{ STitleBar:{
+		title:"MSM Hotplug Tunables"
+	}},
 	{ SSeekBar:{
 		title:"Min CPUs Online",
 		description:"Set the min number of cpus online at the same time.",
@@ -54,6 +63,13 @@ cat << CTAG
 			echo $CPU
 `
 		}
+	}},
+	{ SSeekBar:{
+		title:"Boost Lock Duration",
+		description:"Minimum interval a cpu is boosted (milliseconds).",
+		min:1, max:10000, step:1,
+		default:`cat /sys/module/msm_hotplug/boost_lock_duration`,
+		action:"generic /sys/module/msm_hotplug/boost_lock_duration"
 	}},
 	{ SSeekBar:{
 		title:"Down Lock Duration",

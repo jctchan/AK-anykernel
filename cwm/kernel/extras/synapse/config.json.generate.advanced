@@ -1,6 +1,6 @@
 cat << CTAG
 {
-    name:ADV,
+    name:ADVANCED,
     elements:[
       { SPane:{
 		title:"Low Memory Killer",

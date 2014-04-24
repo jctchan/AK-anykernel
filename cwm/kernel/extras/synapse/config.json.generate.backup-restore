@@ -1,6 +1,6 @@
 cat << CTAG
 {
-    name:BCK&RST,
+    name:BACKUP&RESTORE,
     elements:[
 
 	{ STitleBar:{
