@@ -5,7 +5,7 @@ if [ -f $1 ]; then
   echo `cat $1 | sed -n -e '/\[[^]]/s/^[^[]*\[\([^]]*\)].*$/\1/p'`;
 else
   case $1 in
-    /sys/block/mmcblk0/queue/scheduler) echo "deadline" ;;
+    /sys/block/mmcblk1/queue/scheduler) echo "tripndroid" ;;
   esac;
 fi;
 
